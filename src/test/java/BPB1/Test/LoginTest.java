@@ -19,9 +19,9 @@ public class LoginTest extends Basic {
         initialization();
         loginPage = new Login();
     }
-
     @Test()
-    public void loginTest() {
+    public void loginTest() throws InterruptedException {
+        Thread.sleep(5000);
         loginPage.clickLoginButton();
         loginPage.enterEmailField(prop.getProperty("username"));
         loginPage.clickLoginNextButton();

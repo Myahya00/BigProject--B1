@@ -1,184 +1,315 @@
 package BPB1.Repositories;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import static BPB1.Basic.Basic.driver;
-
 public class Board {
 
-    // Page Factory
-    // Card
-    By boardMenu = By.xpath ("//*[@id=\"root\"]/div[3]/div[2]/div[1]/a/div");
-    By addCard1 = By.xpath ("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/div[4]");
-    By addCard2 = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/div[4]/div[3]/button");
-    By cardName = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/div[4]/div[1]");
-    By cardBox = By.xpath("//*[@id=\"listcard_content-3\"]/div/div/div/a");
-    By addMember = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[1]/button");
-    By memberRandy = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[1]/div/div[4]/div[4]/p");
-    By applyMember = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[1]/div/div[4]/div[4]/p");
-    By labels = By.xpath ("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/button/div");
-    By searchLabel = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[3]/form/input");
-    By addLabel = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[4]/div");
-    By labelName = By. xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[3]/form/input");
-    By colourRed = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[5]/div[13]");
-    By createLabel = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[6]/button/div");
-    By applylabel = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[6]/button/div/h1");
-    By dueDate = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[6]/button/div/h1");
-    By date = By.id("mui-3");
-    By time = By.id("mui-6");
-    By save = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[3]/div/div[4]/button[1]/div");
-    By remove = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[3]/div/div[4]/button[2]/div");
-    By attachFile = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[4]/div/button/div");
-    By move = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/button");
-    By moveList = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/div[1]");
-    By moveNameList = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div[2]");
-    By movePosition = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/div[3]");
-    By moveNumList = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/div[2]/div/div");
-    By moveBtn = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[4]/button");
-    By privateCard = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[2]/div");
-    By publicCard = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[2]/div/button");
-    By archive = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[3]/div/button/div");
-    By addNote = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[4]/div[2]/div");
-    By typeNote = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[4]/div[2]/div/div[1]/div/div[2]/div/p");
-    By saveNote = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[4]/div[2]/div/div[2]/div/button");
-    By editNote = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[4]/div[1]/div");
-    By cheersBtn = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[6]/div/div/div/div");
-    By cheersEmote = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[6]/div/div/div/div/div/div[3]/svg[1]");
-    By cheersSmileyEmote = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[6]/div/div/div/div/div/div[3]/div/aside/div[3]/section/ul[2]/li[2]/button");
-    By cheersText = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[6]/div/div/div/div/div/div[2]/form/input");
-    By cheersConfirm = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[6]/div/div/div/div/div/div[3]/svg[2]");
-    By cheersCancel = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[6]/div/div/div/div/div/div[3]/svg[3]");
-    By cheersIcon = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[6]/div/div/div[1]/div/div");
-    By cheersDelete = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[6]/div/div/div[1]/div/div/div[3]/svg");
-    By comment = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[7]/div/div/div/div[2]/div[2]/div/input");
-    By commentText = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[7]/div/div/div/div[2]/div[2]/div[1]/div/div/div[2]/div/p");
-    By commentPost = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[7]/div/div/div/div[2]/div[2]/div[2]/button[2]");
-    By commentCancel = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[7]/div/div/div/div[2]/div[2]/div[2]/button[1]/div/h1");
-    By commentReply = By.xpath("//*[@id=\"comment_62f326882a691682f859aaf3\"]/div[2]/div[5]/div/a/div");
-    By commentReplyText = By.xpath("//*[@id=\"comment_62f326882a691682f859aaf3\"]/div[2]/div[5]/div/a/div");
-    By commentReplyPost = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[3]/div/div/div[2]/div[2]/div[2]/button[2]");
-    By commentReplyCancel = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[3]/div/div/div[2]/div[2]/div[2]/button[1]/div/h1");
-    By commentEdit = By.xpath("//*[@id=\"comment_62f326882a691682f859aaf3\"]/div[2]/div[1]/div[2]/div/div/div[1]");
-    By commentDelete = By.xpath("//*[@id=\"comment_62f326882a691682f859aaf3\"]/div[2]/div[1]/div[2]/div/div/div[2]");
-
-    //List
-    By addList = By.xpath( "//*[@id=\"root\"]/div/div[3]/div/div/div[4]/button");
-    By listName = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/form/div[1]/input");
-    By createList = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/form/div[2]/div/button");
-    By listAction = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/div[1]/div[2]/div[1]/svg");
-    By listArchiveAllCard = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/div[1]/div[2]/div[1]/svg");
-    By listArchiveThisList = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/div[1]/div[2]/div[2]/div[3]/div/div/div[2]");
-    By listComplete = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/div[1]/div[2]/div[2]/div[3]/div/div/div[3]/p");
-    By listSortAZ = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/div[1]/div[2]/div[2]/div[3]/div/div/div[4]/p");
-    By listSortZA = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/div[1]/div[2]/div[2]/div[3]/div/div/div[5]/p");
-    By listNearestDuedate = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/div[1]/div[2]/div[2]/div[3]/div/div/div[6]/p");
-    By listFurthestDuedate = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/div[1]/div[2]/div[2]/div[3]/div/div/div[7]/p");
-    By listNearestCreatedDate = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/div[1]/div[2]/div[2]/div[3]/div/div/div[8]/p");
-    By listFurthestCreatedDate = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[4]/div/div/div[1]/div[2]/div[2]/div[3]/div/div/div[9]/p");
-
-    //Filter
-    By filter = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div[2]/div[1]");
-    By filterSearchCard = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[1]/form/input");
-    By filterMember = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[5]/div[2]/div[2]/p");
-    By filterDueSoon = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[7]/div[1]/div/p");
-    By filterDueToday = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[7]/div[2]/div/p");
-    By filterOverdue = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[7]/div[3]/div");
-    By filterClear = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[9]/div/div");
-
-    //Archived items
-    By archivedItems = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div[2]/div[2]");
-    By archivedSearchCard = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[1]/div[1]/form/input");
-    By archivedSwitchList = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[1]/div[2]/button");
-    By archivedRestoreCard = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[2]/div/div/div[1]/div[2]/div/div/div/p");
+    /**
+     * Locator
+     */
+    //Home
+    By teamCompany = By.xpath("//*[@id=\"root\"]/div[3]/div[4]/a[1]");
+    By BoardCard = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div[1]/a/div");
 
 
-    // Actions
 
-    //Card
-    public void clickBoardMenu() {driver.findElement(boardMenu).click();}
-    public void clickAddCard1() {driver.findElement(addCard1).click();}
-    public void clickAddCard2() {driver.findElement(addCard2).click();}
-    public void enterCardName(String card) {driver.findElement(cardName).sendKeys(card);}
-    public void clickCardBox() {driver.findElement(cardBox).click();}
-    public void clickAddMember() {driver.findElement(addMember).click();}
-    public void clickMembeRandy() {driver.findElement(memberRandy).click();}
-    public void clickApplymember() {driver.findElement(applyMember).click();}
-    public void clickLabels() {driver.findElement(labels).click();}
-    public void enterSearchLabel(String label) {driver.findElement(searchLabel).sendKeys(label);}
-    public void clickAddLabel() {driver.findElement(addLabel).click();}
-    public void enterlabelName(String labelname) {driver.findElement(labelName).sendKeys(labelname);}
-    public void clickCoulorRed() {driver.findElement(colourRed).click();}
-    public void clickCreateLabel() {driver.findElement(createLabel).click();}
-    public void clickApplyLabel() {driver.findElement(applylabel).click();}
-    public void clickDueDate() {driver.findElement(dueDate).click();}
-    public void enterDate(String Date) {driver.findElement(date).sendKeys(Date);}
-    public void enterTime(String Time) {driver.findElement(time).sendKeys(Time);}
-    public void clickSave() {driver.findElement(save).click();}
-    public void clickRemove() {driver.findElement(remove).click();}
-    public void clickAttachFile() {driver.findElement(attachFile).click();}
-    public void clickMove() {driver.findElement(move).click();}
-    public void clickMoveList() {driver.findElement(moveList).click();}
-    public void clickMoveNamelist() {driver.findElement(moveNameList).click();}
-    public void clickMovePosition() {driver.findElement(movePosition).click();}
-    public void clickMoveNumlist() {driver.findElement(moveNumList).click();}
-    public void clickMoveBtn() {driver.findElement(moveBtn).click();}
-    public void clickPrivateCard() {driver.findElement(privateCard).click();}
-    public void clickPublicCard() {driver.findElement(publicCard).click();}
-    public void clickArchive() {driver.findElement(archive).click();}
-    public void clickAddNote() {driver.findElement(addNote).click();}
-    public void enterTypeNote(String tnote) {driver.findElement(typeNote).sendKeys(tnote);}
-    public void clickSavenote() {driver.findElement(saveNote).click();}
-    public void clickEditnote() {driver.findElement(editNote).click();}
-    public void clickCheersbtn() {driver.findElement(cheersBtn).click();}
-    public void clickCheersEmote() {driver.findElement(cheersEmote).click();}
-    public void clickCheersSmiley() {driver.findElement(cheersSmileyEmote).click();}
-    public void enterCheersText(String Cheerst) {driver.findElement(cheersText).sendKeys(Cheerst);}
-    public void clickCheersConfirm() {driver.findElement(cheersConfirm).click();}
-    public void clickCheersCancel() {driver.findElement(cheersCancel).click();}
-    public void clickCheersIcon() {driver.findElement(cheersIcon).click();}
-    public void clickCheersDelete() {driver.findElement(cheersDelete).click();}
-    public void clickComment() {driver.findElement(comment).click();}
-    public void enterCommentText(String textcomment) {driver.findElement(commentText).sendKeys(textcomment);}
-    public void clickCommentPost() {driver.findElement(commentPost).click();}
-    public void clickCommentCancel() {driver.findElement(commentCancel).click();}
-    public void clickCommentReply() {driver.findElement(commentReply).click();}
-    public void enterCommentReplyText(String textreply) {driver.findElement(commentReplyText).sendKeys(textreply);}
-    public void clickCommentReplyPost() {driver.findElement(commentReplyPost).click();}
-    public void clickCommentReplyCancel() {driver.findElement(commentReplyCancel).click();}
-    public void clickCommentEdit() {driver.findElement(commentEdit).click();}
-    public void clickCommentDelete() {driver.findElement(commentDelete).click();}
+    //Board
+    By AddListMenu = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[5]/button/div");
+    By AddListInputName = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[5]/div/div/form/div[1]/input");
+    By AddListButt = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[5]/div/div/form/div[2]/div/button");
+    By AddCardMenu= By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[1]/div/div/div[4]");
+    By AddCardInputName = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[1]/div/div/div[4]/div[1]/form/input");
+    By AddCardButt = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[1]/div/div/div[4]/div[3]/button/div");
+    By CBPrivateCard = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[1]/div/div/div[4]/div[2]/span/span[1]/input\n");
+    By filterMenu = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div[2]/div[1]");
+    By searchFilter = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[1]/form/input");
+    By closeFilter = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[1]/svg");
+    By clearFilter = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[9]/div/div");
+    By archiveItemsMenu = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div[2]/div[2]");
+    By enterArchiveName = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[1]/div[1]/form/input");
+    By restoreBut = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[2]/div/div/div/div[2]/div/div");
+    By editCardDisini = By.id("editCardMenu");
+    By commentMenu = By.xpath("//*[@id=\"editCardMenuButton\"]/div[2]");
+    By inputComment = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[7]/div/div/div/div[2]/div[2]");
+    By inputComment2 = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[7]/div/div/div/div[2]/div[2]/div[1]");
+    By postButt = By.xpath("//*[@id=\"root\"]/div/div[3]/div[2]/div/div[1]/div/div/div[1]/div[2]/div[2]/div[3]/div/div/div/div[1]/div/div[2]/div[2]/div[2]/button[2]");
+    By changeNameMenu = By.id("editCardMenuButton__Name__text");
+    By inputChangeName = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[1]/div/div/div[1]/div[2]/div[2]/div[3]/form/input[1]");
+    By saveNameChangeButt = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[1]/div/div/div[1]/div[2]/div[2]/div[3]/div/div/button/div");
 
-    //List
-    public void clickAddList() {driver.findElement(addList).click();}
-    public void enterListName(String listname) {driver.findElement(listName).sendKeys(listname);}
-    public void clickCreateList() {driver.findElement(createList).click();}
-    public void clickListAction() {driver.findElement(listAction).click();}
-    public void clickListArchiveAllCard() {driver.findElement(listArchiveAllCard).click();}
-    public void clickListArchiveThisList() {driver.findElement(listArchiveThisList).click();}
-    public void clickListComplete() {driver.findElement(listComplete).click();}
-    public void clickListSortAZ() {driver.findElement(listSortAZ).click();}
-    public void clickListSortZA() {driver.findElement(listSortZA).click();}
-    public void clickListNearestDueDate() {driver.findElement(listNearestDuedate).click();}
-    public void clickListFurthestDueDate() {driver.findElement(listFurthestDuedate).click();}
-    public void clickListNearestCreatedDate() {driver.findElement(listNearestCreatedDate).click();}
-    public void clickListFurthestCreatedDate() {driver.findElement(listFurthestCreatedDate).click();}
+    //In card
+    By cardDisini = By.xpath("//*[@id=\"listcard_content-0\"]/div[3]/div/div/a");
+    By cardTesting = By.xpath("//*[@id=\"listcard_content-2\"]/div[1]/div/div/a");
+    By cardCoba = By.xpath("//*[@id=\"listcard_content-2\"]/div[1]/div/div/a");
+    By AddMemberMenu = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[1]/button/div");
+    By MemberIndra = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[1]/div/div[4]/div[6]");
+    By ApplyMemberButt = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[1]/div/div[5]/button");
+    By AddLabelsMenu = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/button/div");
+    By InputSearchLabels = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[3]/form/input");
+    By SetLabelsMenu = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[4]/div");
+    By InputNameLabels = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[3]/form/input");
+    By redColour = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[5]/div[36]");
+    By CreateLabelsBut = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[6]/button/div");
+    By lowLabel = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[5]/div[2]/div/div");
+    By applyLabelsBut = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[6]/button");
+    By editLabels = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[5]/div[1]/svg/path");
+    By deleteLabelsButt = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[2]/div/div[6]/button[2]");
+    By DueDateMenu = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[3]/button");
+    By SetDueDate = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[3]/div/div[3]/div[1]/div/div/div/button");
+    By valueDate = By.xpath("/html/body/div[25]/div[2]/div[1]/div/div/div[2]/div/div[2]/div/div[3]/div[6]/button");
+    By SaveDueDateBut = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[3]/div/div[4]/button[1]");
+    By RemoveDueDateBut = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[3]/div/div[4]/button[1]");
+    By MoveMenu = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/button");
+    By MoveListDD = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/div[1]");
+    By DDMoveBacklog = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div[1]");
+    By DDMoveDesign = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div[2]");
+    By DDMoveTodo = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div[3]");
+    By DDMoveDoing = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div[4]");
+    By MovePositionDD = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/div[2]/a");
+    By DDPosition1 = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/div[2]/div/div[1]");
+    By MoveButt = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[4]/button/div");
+    By ChangeToPrivateMenu = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[2]/div/button/div");
+    By ChangeToPublicMenu = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[2]/div/button/div");
+    By archiveMenu = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[3]/div/button/div");
+    By editComment = By.xpath("//*[@id=\"comment_62f8f783358a2874252705a3\"]/div[2]/div[1]");
+    By deleteComment = By.xpath("//*[@id=\"comment_62f8f783358a2874252705a3\"]/div[2]/div[1]/div[2]/div/div/div[2]");
+    By deleteButt = By.xpath("/html/body/div[13]/div[3]/div/div/div[2]/div[2]/button");
 
-    //Filter
-    public void clickFilter() {driver.findElement(filter).click();}
-    public void enterFilterSearchCard(String searchCard) {driver.findElement(filterSearchCard).sendKeys(searchCard);}
-    public void clickFilterMember() {driver.findElement(filterMember).click();}
-    public void clickFilterDueSoon() {driver.findElement(filterDueSoon).click();}
-    public void clickFilterDueToday() {driver.findElement(filterDueToday).click();}
-    public void clickFilterOverdue() {driver.findElement(filterOverdue).click();}
-    public void clickFilterClear() {driver.findElement(filterClear).click();}
-
-    //Archived Item
-    public void clickArchivedItems() {driver.findElement(archivedItems).click();}
-    public void enterArchivedSearchCard(String archivedSearch) {driver.findElement(archivedSearchCard).sendKeys(archivedSearch);}
-    public void clickArchivedSwitchList() {driver.findElement(archivedSwitchList).click();}
-    public void clickArchivedRestoreCard() {driver.findElement(archivedRestoreCard).click();}
+    //verify
+    By verifyBoard = By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[1]/div/nav/ol/li[5]/div/div/span");
+    By vrfHeaderList = By.className("ListContainer_headerSection__title__text__36H_r");
+    By vrfHeaderCard = By.className("OverlayButton_box__2jFLd");
+    By noticeSuccess = By.id("notistack-snackbar");
+    By vrfArchive = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[2]/div/div/div");
 
 
+
+    /**
+     * Method
+     * parameter digunakan untuk memasukan data contoh (String user) yang di ambil hanya variable karna variablenya menyimpan value
+     */
+    public Board() {
+        PageFactory.initElements(driver, "/companies/61eba2c85080f47b25ddc8f8");
+    }
+
+    //Home
+    public void clickTeamCompany() {
+        driver.findElement(teamCompany).click();
+    }
+    public void selectCardBoard() {
+        driver.findElement(BoardCard).click();
+    }
+
+    //Board
+    public void clickAddListMenu() {
+        driver.findElement(AddListMenu).click();
+    }
+    public void enterNameList(String text) {
+        driver.findElement(AddListInputName).sendKeys(text);
+    }
+    public void clickAddListButton() {
+        driver.findElement(AddListButt).click();
+    }
+    public void clickCardMenu() {
+        driver.findElement(AddCardMenu).click();
+    }
+    public void enterNameCard(String text) {
+        driver.findElement(AddCardInputName).sendKeys(text);
+    }
+    public void clickCardButton() {
+        driver.findElement(AddCardButt).click();
+    }
+    public void selectCheckBoxPrivate() {
+        driver.findElement(CBPrivateCard).click();
+    }
+
+    public void clickFilterMenu() {
+        driver.findElement(filterMenu).click();
+    }
+    public void enterFilterName(String keys) {
+        driver.findElement(searchFilter).sendKeys(keys);
+    }
+    public void clickCloseFilter() {
+        driver.findElement(closeFilter).click();
+    }
+    public void clickClearFilter() {
+        driver.findElement(clearFilter).click();
+    }
+    public void clickArchiveItems() {
+        driver.findElement(archiveItemsMenu).click();
+    }
+    public void enterArchiveName(String name) {
+        driver.findElement(enterArchiveName).sendKeys(name);
+    }
+    public void clickRestore() {
+        driver.findElement(restoreBut).click();
+    }
+    public void clickEditCardDisini() {
+        driver.findElement(editCardDisini).click();
+    }
+    public void clickCommentMenu() {
+        driver.findElement(commentMenu).click();
+    }
+    public void selectTextArea(String comment) {
+        driver.findElement(inputComment).sendKeys();
+    }
+    public void inputComment(String comment) {
+        driver.findElement(inputComment2).sendKeys();
+    }
+    public void clickCommentButton() {
+        driver.findElement(postButt).click();
+    }
+    public void clickChangeNameMenu() {
+        driver.findElement(changeNameMenu).click();
+    }
+    public void clareName() {
+        driver.findElement(inputChangeName).clear();
+    }
+    public void inputChangeName(String name) {
+        driver.findElement(inputChangeName).sendKeys(name);
+    }
+    public void clickSaveName() {
+        driver.findElement(saveNameChangeButt).click();
+    }
+
+
+
+    //In Card
+
+    public void selectCardDisini() {
+        driver.findElement(cardDisini).click();
+    }
+    public void selectCardTesting() {
+        driver.findElement(cardTesting).click();
+    }
+    public void selectCardCoba() {
+        driver.findElement(cardCoba).click();
+    }
+    public void clickAddMemberMenu() {
+        driver.findElement(AddMemberMenu).click();
+    }
+    public void selectMember() {
+        driver.findElement(MemberIndra).click();
+    }
+    public void clickAddMemberButt() {
+        driver.findElement(ApplyMemberButt).click();
+    }
+    public void clickAddLabelsMenu() {
+        driver.findElement(AddLabelsMenu).click();
+    }
+    public void enterSearchLabels(String searchvalue) {
+        driver.findElement(InputSearchLabels).sendKeys(searchvalue);
+    }
+    public void clickSetLabelsMenu() {
+        driver.findElement(SetLabelsMenu).click();
+    }
+    public void inputNameLabels(String text) {
+        driver.findElement(InputNameLabels).sendKeys(text);
+    }
+    public void clickRedColour() {
+        driver.findElement(redColour).click();
+    }
+    public void clickCreateLabelsButt() {
+        driver.findElement(CreateLabelsBut).click();
+    }
+    public void clickLowLabels() {
+        driver.findElement(lowLabel).click();
+    }
+    public void clickApplyLabel() {
+        driver.findElement(applyLabelsBut).click();
+    }
+    public void clickEditLabel() {
+        driver.findElement(editLabels).click();
+    }
+    public void clickDeleteLabelsButton() {
+        driver.findElement(deleteLabelsButt).click();
+    }
+    public void clickDueDateMenu() {
+        driver.findElement(DueDateMenu).click();
+    }
+    public void editDate() {
+        driver.findElement(SetDueDate).click();
+    }
+    public void selectDue() {
+        Select oSelect = new Select(driver.findElement(By.className("MuiButtonBase-root MuiPickersDay-root MuiPickersDay-dayWithMargin css-ub1r1")));
+        oSelect.selectByValue("20");
+    }
+
+    public void clickSaveDueDate() {
+        driver.findElement(SaveDueDateBut).click();
+    }
+    public void clickRemoveDueDateButt() {
+        driver.findElement(RemoveDueDateBut).click();
+    }
+    public void clickMenuMove() {
+        driver.findElement(MoveMenu).click();
+    }
+    public void clickMoveList() {
+        driver.findElement(MoveListDD).click();
+    }
+    public void selectMoveListBacklog() {
+        driver.findElement(DDMoveBacklog).click();
+    }
+    public void selectMoveListDesign() {
+        driver.findElement(DDMoveDesign).click();
+    }
+    public void selectMoveListTodo() {
+        driver.findElement(DDMoveTodo).click();
+    }
+    public void selectMoveListDoing() {
+        driver.findElement(DDMoveDoing).click();
+    }
+    public void clickMovePosition() {
+        driver.findElement(MovePositionDD).click();
+    }
+    public void selectPosition1() {
+        driver.findElement(DDPosition1).click();
+    }
+
+    public void clickMoveButt() {
+        driver.findElement(MoveButt).click();
+    }
+    public void clickPrivateMenu() {
+        driver.findElement(ChangeToPrivateMenu).click();
+    }
+    public void clickPublicMenu() {
+        driver.findElement(ChangeToPublicMenu).click();
+    }
+    public void clickArchiveMenu() {
+        driver.findElement(archiveMenu).click();
+    }
+    public void clickEditComment() {
+        driver.findElement(editComment).click();
+    }
+    public void clickDeleteMenu() {
+        driver.findElement(deleteComment).click();
+    }
+    public void clickDeleteButton() {
+        driver.findElement(deleteButt).click();
+    }
+
+
+
+
+
+    //Verify
+    public void displayBoardTitle() {
+        driver.findElement(verifyBoard).isDisplayed();
+    }
+    public void displayNamelist() {
+        driver.findElement(vrfHeaderList).isDisplayed();
+    }
+    public void displayNameCard() {
+        driver.findElement(vrfHeaderCard).isDisplayed();
+    }
+    public void noticeSuccessIsDisplay() {
+        driver.findElement(noticeSuccess).isDisplayed();
+    }
+    public void displayNameItems() {
+        driver.findElement(vrfArchive).isDisplayed();
+    }
 }
 
 
