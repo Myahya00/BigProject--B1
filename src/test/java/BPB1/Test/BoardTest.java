@@ -223,6 +223,16 @@ public class BoardTest extends Basic {
         board.noticeSuccessIsDisplay();
         Assert.assertTrue("Update card is success", true);
     }
+    @Test(priority = 19 )
+    public void User_remove_due_date() {
+        board.clickTeamCompany();
+        board.selectCardBoard();
+        board.selectCardTestt();
+        board.clickDueDate();
+        board.clickRemoveDueDateButt();
+        board.noticeSuccessIsDisplay();
+        Assert.assertTrue("Update card is success", true);
+    }
 
 
     @AfterMethod

@@ -1,4 +1,5 @@
 package BPB1.Repositories;
+import BPB1.Basic.Basic;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -30,6 +31,7 @@ public class Board {
     By archiveItemsMenu = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div[2]/div[2]");
     By enterArchiveName = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[1]/div[1]/form/input");
     By restoreBut = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[2]/div/div/div/div[2]/div/div");
+    By restoreButPri = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[2]/div/div/div/div[2]/div/div");
     By editCardDisini = By.id("editCardMenu");
     By commentMenu = By.xpath("//*[@id=\"editCardMenuButton\"]/div[2]");
     By inputComment = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[7]/div/div/div/div[2]/div[2]");
@@ -40,6 +42,9 @@ public class Board {
     By saveNameChangeButt = By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div[1]/div/div/div[1]/div[2]/div[2]/div[3]/div/div/button/div");
 
     //In card
+    By editCardAyo = By.xpath("//*[@id=\"editCardMenu\"]");
+    By cardPrivateTest = By.xpath("//*[@id=\"listcard_content-3\"]/div[1]/div/div/a");
+    By cardTesttt = By.xpath("//*[@id=\"listcard_content-0\"]/div[2]/div/div/a");
     By cardDisini = By.xpath("//*[@id=\"listcard_content-0\"]/div[3]/div/div/a");
     By cardTesting = By.xpath("//*[@id=\"listcard_content-2\"]/div[1]/div/div/a");
     By cardCoba = By.xpath("//*[@id=\"listcard_content-2\"]/div[1]/div/div/a");
@@ -60,7 +65,8 @@ public class Board {
     By SetDueDate = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[3]/div/div[3]/div[1]/div/div/div/button");
     By valueDate = By.xpath("/html/body/div[25]/div[2]/div[1]/div/div/div[2]/div/div[2]/div/div[3]/div[6]/button");
     By SaveDueDateBut = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[3]/div/div[4]/button[1]");
-    By RemoveDueDateBut = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[1]/div[3]/div/div[4]/button[1]");
+    By editDue = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[3]/div");
+    By RemoveDueDateBut = By.xpath("//*[@id=\"cardModal\"]/div/div/div[1]/div[3]/div[2]/div[4]/button[2]");
     By MoveMenu = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/button");
     By MoveListDD = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/div[1]");
     By DDMoveBacklog = By.xpath("//*[@id=\"cardModal\"]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div[1]");
@@ -83,6 +89,7 @@ public class Board {
     By vrfHeaderCard = By.className("OverlayButton_box__2jFLd");
     By noticeSuccess = By.id("notistack-snackbar");
     By vrfArchive = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[2]/div/div/div");
+    By vrfArchivePrivate = By.xpath("//*[@id=\"root\"]/div/div[3]/div[1]/div/div[2]/div[2]/div/div/div[3]/div[1]");
 
 
 
@@ -146,6 +153,9 @@ public class Board {
     public void clickRestore() {
         driver.findElement(restoreBut).click();
     }
+    public void clickRestorPri() {
+        driver.findElement(restoreButPri).click();
+    }
     public void clickEditCardDisini() {
         driver.findElement(editCardDisini).click();
     }
@@ -176,8 +186,16 @@ public class Board {
 
 
 
-    //In Card
-
+    //In Card\
+    public void selectEditCardAyo() {
+        driver.findElement(editCardAyo).click();
+    }
+    public void selectPrivateTest() {
+        driver.findElement(cardPrivateTest).click();
+    }
+    public void selectCardTestt() {
+        driver.findElement(cardTesttt).click();
+    }
     public void selectCardDisini() {
         driver.findElement(cardDisini).click();
     }
@@ -233,12 +251,15 @@ public class Board {
         driver.findElement(SetDueDate).click();
     }
     public void selectDue() {
-        Select oSelect = new Select(driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div/div[2]/div/div[2]")));
-        oSelect.selectByIndex(20);
+        Select oSelect = new Select(driver.findElement(By.className("MuiButtonBase-root MuiPickersDay-root MuiPickersDay-dayWithMargin css-ub1r1")));
+        oSelect.selectByValue("20");
     }
 
     public void clickSaveDueDate() {
         driver.findElement(SaveDueDateBut).click();
+    }
+    public void clickDueDate() {
+        driver.findElement(editDue).click();
     }
     public void clickRemoveDueDateButt() {
         driver.findElement(RemoveDueDateBut).click();
@@ -310,7 +331,11 @@ public class Board {
     public void displayNameItems() {
         driver.findElement(vrfArchive).isDisplayed();
     }
+    public void displayNamePrivateItems() {
+        driver.findElement(vrfArchivePrivate).isDisplayed();
+    }
 }
+
 
 
 
