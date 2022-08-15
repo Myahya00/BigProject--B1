@@ -220,7 +220,10 @@ public class BoardTest extends Basic {
         board.editDate();
         board.selectDue();
         board.clickSaveDueDate();
+        board.noticeSuccessIsDisplay();
+        Assert.assertTrue("Update card is success", true);
     }
+
 
     @AfterMethod
     public void tearDown() {

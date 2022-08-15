@@ -233,8 +233,8 @@ public class Board {
         driver.findElement(SetDueDate).click();
     }
     public void selectDue() {
-        Select oSelect = new Select(driver.findElement(By.className("MuiButtonBase-root MuiPickersDay-root MuiPickersDay-dayWithMargin css-ub1r1")));
-        oSelect.selectByValue("20");
+        Select oSelect = new Select(driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div/div[2]/div/div[2]")));
+        oSelect.selectByIndex(20);
     }
 
     public void clickSaveDueDate() {
