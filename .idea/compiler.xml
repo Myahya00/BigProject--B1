@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="big-project-cicle-app" />
         <module name="BigProject_B1" />
+        <module name="BigProject--B1" />
       </profile>
     </annotationProcessing>
   </component>
