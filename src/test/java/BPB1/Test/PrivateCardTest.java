@@ -55,7 +55,7 @@ public class PrivateCardTest extends Basic {
         Assert.assertTrue("Toggle members successful",true);
     }
     @Test(priority = 3 )
-    public void User_create_labels() {
+    public void User_create_labels_in_card_private() {
         board.clickTeamCompany();
         board.selectCardBoard();
         board.selectPrivateTest();
@@ -68,7 +68,7 @@ public class PrivateCardTest extends Basic {
         Assert.assertTrue("Creating label for this board is success",true);
     }
     @Test(priority = 4 )
-    public void User_use_labels() {
+    public void User_use_labels_in_card_private() {
         board.clickTeamCompany();
         board.selectCardBoard();
         board.selectPrivateTest();
@@ -79,7 +79,7 @@ public class PrivateCardTest extends Basic {
         Assert.assertTrue("toggle multiple labels card is success",true);
     }
     @Test(priority = 5)
-    public void User_archive_card() {
+    public void User_archive_private_card() {
         board.clickTeamCompany();
         board.selectCardBoard();
         board.selectPrivateTest();
@@ -98,7 +98,7 @@ public class PrivateCardTest extends Basic {
         Assert.assertEquals("PrivateTest", "PrivateTest");
     }
     @Test(priority = 7)
-    public void User_restore_archive() {
+    public void User_restore_archive_private() {
         board.clickTeamCompany();
         board.selectCardBoard();
         board.clickArchiveItems();
@@ -108,7 +108,7 @@ public class PrivateCardTest extends Basic {
         Assert.assertTrue("Unarchiving card is success", true);
     }
     @Test(priority = 8 )
-    public void User_change_name_card() {
+    public void User_change_name_Privatecard() {
         board.clickTeamCompany();
         board.selectCardBoard();
         board.selectEditCardAyo();
