@@ -1,5 +1,6 @@
 package BPB1.Test;
 
+
 import BPB1.Basic.Basic;
 import BPB1.Repositories.CheckIns;
 import BPB1.Repositories.Login;
@@ -9,12 +10,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class CheckInTest extends Basic {
-        Login loginPage;
-        CheckIns checkInPage;
+    Login loginPage;
+    CheckIns checkInPage;
 
-        public CheckInTest() {
-            super();
-        }
+    public CheckInTest() {
+        super();
+    }
 
     @BeforeMethod
     public void setUp() throws InterruptedException {
@@ -27,7 +28,7 @@ public class CheckInTest extends Basic {
         loginPage.clickPassNextButton();
         Thread.sleep(3000);
         loginPage.selectCompanyLabel();
-        org.testng.Assert.assertEquals(loginPage.validateDashboard(), "Home");
+        Assert.assertEquals(loginPage.validateDashboard(), "Home");
         checkInPage = new CheckIns();
     }
     @Test(priority = 1)
